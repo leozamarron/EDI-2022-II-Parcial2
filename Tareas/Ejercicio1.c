@@ -2,7 +2,7 @@
 #include <string.h>
 #define N 20
 
-int recursividad(char *cadena, int inicio, int fin, char *copia, int aux);
+int recursividad(char *cadena, int inicio, int fin, char *copia);
 void cambioAlRevez(char *copia, int fin);
 void eliminaEspacios(char *cadena, int *fin);
 
@@ -16,15 +16,14 @@ int main()
 
     printf("Dame la cadena: ");
     scanf("%[^\n]", &cadena);
-
     fin = strlen(cadena);
-    int aux = fin;
+
     eliminaEspacios(cadena, &fin);
     
     strcpy(copia, cadena);
     cambioAlRevez(copia, fin);
 
-    palindroma = recursividad(cadena, inicio, fin, copia, aux);
+    palindroma = recursividad(cadena, inicio, fin, copia);
     printf("%d", palindroma);
 
     return 0;
@@ -59,10 +58,10 @@ void cambioAlRevez(char *copia, int fin)
     }
 }
 
-int recursividad(char *cadena, int inicio, int fin, char *copia, int aux)
+int recursividad(char *cadena, int inicio, int fin, char *copia)
 {
     
-    if (fin < 1)
+    if (fin < 0)
     {
         return 1;
     }
@@ -72,6 +71,6 @@ int recursividad(char *cadena, int inicio, int fin, char *copia, int aux)
     }
     else
     {
-        return recursividad(cadena, inicio + 1, fin-1, copia, aux);
+        return recursividad(cadena, inicio + 1, fin-1, copia);
     }
 }

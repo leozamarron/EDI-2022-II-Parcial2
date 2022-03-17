@@ -31,7 +31,7 @@ int calculaPosicion(int pos)
     }
     else
     {
-        return -1;
+        return 0;
     }
     return valor;
 }
