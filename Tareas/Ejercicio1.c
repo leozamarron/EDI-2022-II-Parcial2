@@ -16,14 +16,13 @@ int main()
 
     printf("Dame la cadena: ");
     scanf("%[^\n]", &cadena);
-    fin = strlen(cadena);
 
+    fin = strlen(cadena);
     eliminaEspacios(cadena, &fin);
-    
     strcpy(copia, cadena);
     cambioAlRevez(copia, fin);
-
     palindroma = recursividad(cadena, inicio, fin, copia);
+    
     printf("%d", palindroma);
 
     return 0;
