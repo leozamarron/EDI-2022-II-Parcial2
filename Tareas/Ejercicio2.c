@@ -2,7 +2,7 @@
 #include <string.h>
 #define N 20
 
-int palindroma(char *cadena, int inicio, int fin);
+int calculaC(char *cadena, int inicio, int fin);
 void cambioAlRevez(char *copia, int fin);
 void eliminaEspacios(char *cadena, int *fin);
 
@@ -11,7 +11,7 @@ int main()
     char cadena[N];
     int inicio = 0;
     int fin;
-    int palindroma;
+    int regreso;
 
     printf("Dame la cadena: ");
     scanf("%[^\n]", &cadena);
@@ -19,8 +19,8 @@ int main()
     fin = strlen(cadena);
     eliminaEspacios(cadena, &fin);
 
-    palindroma = recursividad(cadena, inicio, fin);
-    printf("%d", palindroma);
+    regreso = calculaC(cadena, inicio, fin);
+    printf("%d", regreso);
 
     return 0;
 }
@@ -43,48 +43,31 @@ void eliminaEspacios(char *cadena, int *fin)
 
 void cambioAlRevez(char *copia, int fin)
 {
-    int aux;
+    char aux;
 
-    for (int j = fin; j > 0; j--)
+    for (int i = 0, j = fin - 1; i < (fin / 2);
+       i++, j--) 
     {
-        for (int i = 0; i < fin; i++)
-        {
-            aux = copia[j];
-            copia[j] = copia[i];
-            copia[i] = copia[j];
-        }
+        aux = copia[i];
+        copia[i] = copia[j];
+        copia[j] = aux;
     }
 }
 
-int palindroma(char *cadena, int inicio, int fin)
+int calculaC(char *cadena, int inicio, int fin)
 {
     int val = 1;
     char copia[N];
     strcpy(copia, cadena);
     cambioAlRevez(copia, fin);
 
-//    if (inicio > fin)
-//    {
-//        return 1;
-//    }
-//    if (cadena[inicio] == copia [fin])
-//    {
-//        return recursividad(cadena, inicio + 1, fin - 1);
-//    }
-//    else
-//    {
-//        return 0;
-//    }
-
     for (int i = 0; i < fin-1; i++)
     {
-        for (int j = fin-1; j > i; j--)
+        if (cadena[i] != copia[i])
         {
-            if (cadena[i] != cadena[j])
-            {
-                val = 0;
-            }
-            
+            val = 0;
+            i = fin;
         }
     }
+    return val;
 }
