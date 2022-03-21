@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define N 20
+#define N 12
 
 int recursividad(char *cadena, int inicio, int fin, char *copia);
 void cambioAlRevez(char *copia, int fin);
