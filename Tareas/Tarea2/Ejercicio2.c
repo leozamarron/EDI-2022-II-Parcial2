@@ -46,11 +46,13 @@ int buscarDatos(int *nums, int target)
         if (target == nums[i])
         {
             val = i;
+            i = N;
         }
         
-        else if (target > nums[i])
+        else if (target < nums[i])
         {
-            val = i+1;
+            val = i;
+            i = N;
         }
     }
     
