@@ -24,7 +24,7 @@ void capturaNombres(char nombres[N][M])
     for (int i = 0; i < N; i++)
     {
         printf("dame el nombre del numero %d: ", i);
-        scanf(" %s", &nombres[i][M]);
+        scanf("%s", &nombres[i][M]);
     }
 }
 
