@@ -12,6 +12,8 @@ int main()
     char abecedario[52];
     char objetivo, aux;
 
+    //tambien tenía la idea de usar el codigo ASCII pero no supe como implementarlo
+
     abecedario[0]='a'; abecedario[1]='b'; abecedario[2]='c'; abecedario[3]='d'; abecedario[4]='e'; abecedario[5]='f';
     abecedario[6]='g'; abecedario[7]='h'; abecedario[8]='i'; abecedario[9]='j'; abecedario[10]='k'; abecedario[11]='l';
     abecedario[12]='m'; abecedario[13]='n'; abecedario[14]='o'; abecedario[15]='p'; abecedario[16]='q'; abecedario[17]='r';
