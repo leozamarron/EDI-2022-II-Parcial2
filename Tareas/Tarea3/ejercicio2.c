@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 10
+#define N 3
 
 void capturaDatos(int *n);
 void quickSort(int *n, int inicio, int fin);
@@ -19,23 +19,30 @@ int main()
 
 void comparaDatos(int *num)
 {
-    int contador, val = 0;
-    int aux = 10000000;
+    int val = 0;
+    int contador = 0;
+    int aux = 0;
     for (int i = 0; i < N; i++)
     {
-        printf("%d ",num[i]);
-        if (num[i]==num[i+1] && i != N -1)
+        contador = 0;
+        
+        if (num[i]==num[i+1])
         {
-            for (int j = i; j < N; j++)
-            {   
-                contador++;
-            }
-            if (contador < aux)
+           while(num[i] == num[i+1])
+           {
+            	contador++;
+            	i ++;
+           }
+            if (contador > aux)
             {
                 val = num[i];
                 aux = contador;
             }
         }
+    }
+    for(int i = 0; i <N; i++)
+    {
+    	 printf("%d ",num[i]);
     }
     printf("\n%d",val);
 }
